@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Покатит RC — краулеры 1:10 в Екатеринбурге</title>
+<meta name="description" content="Радиоуправляемые краулеры 1:10: в наличии в Екатеринбурге и под заказ. Поможем выбрать модель, доставка по России.">
+<style>
+  :root {
+    --bg: #14130f;
+    --panel: #1f1d17;
+    --line: #35322a;
+    --text: #f2efe6;
+    --muted: #a8a290;
+    --accent: #f2a31b;
+    --accent-ink: #1a1405;
+    --ok: #7fc46b;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  a { color: inherit; }
+
+  .draft {
+    background: #4a3a10; color: #ffe2a0; font-size: 13px;
+    text-align: center; padding: 6px 16px;
+  }
+
+  header { padding: 18px 0; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+  .logo span { color: var(--accent); }
+  .city { font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+  .hero { padding: 20px 0 32px; display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
+  .face {
+    width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; text-align: center;
+    background: var(--panel); border: 2px solid var(--accent); color: var(--muted); font-size: 11px; overflow: hidden;
+  }
+  .face img { width: 100%; height: 100%; object-fit: cover; }
+  h1 { font-size: clamp(24px, 5.5vw, 40px); line-height: 1.1; margin: 0 0 8px; letter-spacing: -.02em; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lead { color: var(--muted); margin: 0; max-width: 52ch; }
+  .hero-cta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .btn {
+    display: inline-block; border: 1px solid transparent; cursor: pointer; text-decoration: none; text-align: center;
+    background: var(--accent); color: var(--accent-ink);
+    font: inherit; font-weight: 700; padding: 13px 20px; border-radius: 999px;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .perks { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; padding: 0 0 36px; }
+  .perk { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+  .perk b { display: block; margin-bottom: 2px; }
+  .perk span { color: var(--muted); font-size: 14px; }
+
+  section { padding-bottom: 40px; }
+  h2 { font-size: 24px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 16px; font-size: 15px; }
+
+  .cars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .car { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .photo {
+    aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center;
+    background: repeating-linear-gradient(135deg, #2a271f 0 14px, #25221b 14px 28px);
+    color: var(--muted); font-size: 13px;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .body { padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .brand { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .car h3 { margin: 0; font-size: 20px; line-height: 1.2; }
+  .car ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+  .pitch { margin: 0; font-size: 15px; }
+  .car details { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 10px 0 0; margin: 0; }
+  .car summary { font-size: 14px; color: var(--accent); }
+  .car dl { margin: 10px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; }
+  .car dt { color: var(--muted); }
+  .car dd { margin: 0; }
+  .status { font-size: 13px; color: var(--ok); }
+  .price { font-size: 26px; font-weight: 800; margin-top: auto; }
+  .price small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); }
+
+  .order { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .order ol { margin: 0 0 16px; padding-left: 20px; color: var(--muted); }
+  .order li { margin-bottom: 6px; }
+  .order li b { color: var(--text); }
+
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 8px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin: 8px 0 0; font-size: 15px; }
+
+  footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="logo">Покатит <span>RC</span></div>
+    <div class="city">Екатеринбург · доставка по России</div>
+  </header>
+
+  <section class="hero">
+    <div class="face"><img src="img/avatar.jpg" alt="Покатит RC"></div>
+    <div>
+      <h1>Покатит RC. Катаем, обозреваем и <em>привозим RC-краулеры</em></h1>
+      <p class="lead">Сообщество про радиоуправляемые модели. Поможем выбрать машину под ваш бюджет и задачи. Часть моделей есть у нас в Екатеринбурге, остальные привезём под заказ.</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" data-ask data-msg="Здравствуйте! Помогите выбрать RC-модель." href="#">Задать вопрос</a>
+      <a class="btn ghost" data-order data-msg="Здравствуйте! Хочу оформить заказ." href="#">Оформить заказ</a>
+    </div>
+  </section>
+
+  <div class="perks">
+    <div class="perk"><b>Отвечает Борис</b><span>Автор канала, сам катает эти модели</span></div>
+    <div class="perk"><b>Проверяем перед отправкой</b><span>Каждую машину включаем и снимаем на видео</span></div>
+    <div class="perk"><b>Обзор на каждую модель</b><span>Видно, как она едет на самом деле</span></div>
+    <div class="perk"><b>Привезём под заказ</b><span>Любую модель Yikong, FMS, Axial</span></div>
+  </div>
+
+  <section id="cars">
+    <h2>Скоро в Екатеринбурге</h2>
+    <p class="sub">Первая партия уже едет. Можно забронировать — напишите, и машина ваша.</p>
+    <div class="cars">
+
+      <article class="car">
+        <div class="photo"><img src="img/gclass-v3.jpg" alt="Yikong G-Class PRO V2, чёрный" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK4106 PRO V2</div>
+          <h3>G-Class PRO V2, чёрный</h3>
+          <p class="pitch">Самый проходимый из трёх: обе блокировки включаются с пульта, а на месте он разворачивается почти как танк.</p>
+          <ul>
+            <li>Блокировки переднего и заднего дифференциала с пульта</li>
+            <li>Две передачи: пониженная для камней, повышенная для трассы</li>
+            <li>Портальные мосты — высокий клиренс под редукторами</li>
+            <li>Свет фар и фонарей, запаска и багажник на крыше</li>
+          </ul>
+          <details>
+            <summary>Все характеристики</summary>
+            <dl>
+              <dt>Масштаб</dt><dd>1:10, полный привод 4WD</dd>
+              <dt>Мотор</dt><dd>щёточный 550</dd>
+              <dt>Разворот</dt><dd>блокировка одного заднего колеса (DIG)</dd>
+              <dt>Передачи</dt><dd>металлические шестерни, 2 скорости</dd>
+              <dt>Рулевая</dt><dd>сервопривод 25 кг, металл</dd>
+              <dt>Размеры</dt><dd>535 × 247 × 267 мм, база 325 мм</dd>
+              <dt>Углы</dt><dd>въезд 63°, съезд 58°</dd>
+              <dt>Вес</dt><dd>около 3,8 кг</dd>
+              <dt>Питание</dt><dd>Li-Po 3S, разъём XT60 — не входит</dd>
+              <dt>В коробке</dt><dd>машина, пульт, инструкция</dd>
+            </dl>
+          </details>
+          <div class="status">Едет · 1 шт.</div>
+          <div class="price">34 900 ₽<small>без аккумулятора и зарядки</small></div>
+          <div class="btns">
+            <a class="btn" data-order data-msg="Здравствуйте! Хочу забронировать: Yikong G-Class PRO V2, чёрный." href="#">Забронировать</a>
+            <a class="btn ghost" data-ask data-msg="Здравствуйте! Вопрос по модели: Yikong G-Class PRO V2, чёрный." href="#">Задать вопрос</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/patrol-v5.jpg" alt="Yikong Nissan Patrol, тёмно-синий" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK4107</div>
+          <h3>Nissan Patrol, тёмно-синий</h3>
+          <p class="pitch">Классика 90-х в тёмно-синем металлике. Самый лёгкий из трёх — хороший выбор и для первой машины, и в коллекцию.</p>
+          <ul>
+            <li>Портальные мосты и клиренс 65 мм</li>
+            <li>Две передачи, переключаются с пульта</li>
+            <li>Масляные амортизаторы в алюминиевых корпусах</li>
+            <li>Светодиодная балка, фары и фонари — с пульта</li>
+          </ul>
+          <details>
+            <summary>Все характеристики</summary>
+            <dl>
+              <dt>Масштаб</dt><dd>1:10, полный привод 4WD</dd>
+              <dt>Мотор</dt><dd>щёточный 550, регулятор 60 А, влагозащита</dd>
+              <dt>Разворот</dt><dd>блокировка одного заднего колеса (DIG)</dd>
+              <dt>Рулевая</dt><dd>сервопривод 25 кг, металл</dd>
+              <dt>Пульт</dt><dd>2,4 ГГц, 10 каналов</dd>
+              <dt>Размеры</dt><dd>521 × 247 × 267 мм, база 325 мм</dd>
+              <dt>Вес</dt><dd>около 3,1 кг</dd>
+              <dt>Питание</dt><dd>Li-Po 3S, разъём XT60 — не входит</dd>
+              <dt>В коробке</dt><dd>машина, пульт, инструкция</dd>
+            </dl>
+          </details>
+          <div class="status">Едет · 1 шт.</div>
+          <div class="price">32 900 ₽<small>без аккумулятора и зарядки</small></div>
+          <div class="btns">
+            <a class="btn" data-order data-msg="Здравствуйте! Хочу забронировать: Yikong Nissan Patrol, тёмно-синий." href="#">Забронировать</a>
+            <a class="btn ghost" data-ask data-msg="Здравствуйте! Вопрос по модели: Yikong Nissan Patrol, тёмно-синий." href="#">Задать вопрос</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/lc80.jpg" alt="FMS FCX10 Toyota Land Cruiser 80, серый" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">FMS · FCX10 RS</div>
+          <h3>Toyota Land Cruiser 80, серый</h3>
+          <p class="pitch">Лицензионная «восьмидесятка» для тех, кому важна копийность: салон, шноркель, люстра на крыше и раскраска в стиле ралли.</p>
+          <ul>
+            <li>Официальная лицензия Toyota, проработанный салон</li>
+            <li>Две передачи: до 10 и до 22 км/ч</li>
+            <li>Классические неразрезные мосты, как на настоящем</li>
+            <li>Рабочий свет, багажник с четырьмя фарами</li>
+          </ul>
+          <details>
+            <summary>Все характеристики</summary>
+            <dl>
+              <dt>Масштаб</dt><dd>1:10, полный привод 4WD</dd>
+              <dt>Мотор</dt><dd>щёточный 550 (32T)</dd>
+              <dt>Размеры</dt><dd>572 × 251 × 288 мм, база 325 мм</dd>
+              <dt>Клиренс</dt><dd>76 мм</dd>
+              <dt>Углы</dt><dd>въезд 51°, съезд 42°</dd>
+              <dt>Пульт</dt><dd>2,4 ГГц, дальность до 150 м</dd>
+              <dt>Питание</dt><dd>Li-Po, разъём XT60 — не входит</dd>
+              <dt>В коробке</dt><dd>машина, пульт, инструкция</dd>
+            </dl>
+          </details>
+          <div class="status">Едет · 1 шт.</div>
+          <div class="price">31 500 ₽<small>без аккумулятора и зарядки</small></div>
+          <div class="btns">
+            <a class="btn" data-order data-msg="Здравствуйте! Хочу забронировать: FMS Toyota Land Cruiser 80, серый." href="#">Забронировать</a>
+            <a class="btn ghost" data-ask data-msg="Здравствуйте! Вопрос по модели: FMS Toyota Land Cruiser 80, серый." href="#">Задать вопрос</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Привезём под заказ</h2>
+    <p class="sub">Нужна другая модель, цвет или бесколлекторная версия — привезём из Китая.</p>
+    <div class="order">
+      <ol>
+        <li><b>Пишете, что хотите.</b> Подскажем по моделям и назовём цену с доставкой.</li>
+        <li><b>Проверяем наличие на фабрике.</b> Обычно в течение дня. Деньги до этого не берём.</li>
+        <li><b>Предоплата 50%.</b> Заказываем машину у поставщика, срок — 20–30 дней.</li>
+        <li><b>Машина приходит в Россию.</b> Присылаем фото и видео, вы доплачиваете вторую половину.</li>
+        <li><b>Отправляем СДЭК</b> в ваш город с трек-номером.</li>
+      </ol>
+      <a class="btn" data-order data-msg="Здравствуйте! Хочу заказать модель под заказ: " href="#">Узнать цену и срок</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Частые вопросы</h2>
+    <details>
+      <summary>Что в коробке?</summary>
+      <p>Собранная машина и пульт. Аккумулятор и зарядное устройство в заводской комплект не входят — подберём подходящие и скажем цену.</p>
+    </details>
+    <details>
+      <summary>Сколько ждать под заказ?</summary>
+      <p>20–30 дней от предоплаты до прихода машины в Россию. Точную дату для вашей модели назовём до оплаты.</p>
+    </details>
+    <details>
+      <summary>Как доставляете?</summary>
+      <p>СДЭК по всей России, в Екатеринбурге можно забрать лично. Стоимость доставки считаем под ваш город.</p>
+    </details>
+    <details>
+      <summary>А если что-то сломается?</summary>
+      <p>Перед отправкой проверяем каждую машину. Если что-то не так — в течение 7 дней после получения машину можно вернуть, пока на ней не ездили. Дальше поможем с запчастями и подскажем, как починить.</p>
+    </details>
+  </section>
+
+  <footer>Покатит RC · Екатеринбург · доставка по России</footer>
+</div>
+
+<script>
+  const PHONE = '79089215161';  // номер Бориса: запасной канал, пока не заполнены ссылки ниже
+  const MAX_URL = 'https://max.ru/u/f9LHodD0cOLcy3z6zpS6gKzlWmNIhOMxOo9oiC7Bvtw6PFy-y7FVdZ7S3M4';         // ссылка на профиль Бориса в MAX (https://max.ru/u/...) — консультации
+  const ORDER_TG = 'PavelKokhsarov';        // ник Telegram-аккаунта заказов, без @ — бронь и заказы
+  // метка ролика из ссылки, например ?utm_content=obzor-patrol — попадает в текст сообщения
+  const source = new URLSearchParams(location.search).get('utm_content');
+
+  document.querySelectorAll('[data-msg]').forEach(a => {
+    const text = encodeURIComponent(a.dataset.msg + (source ? ` (${source})` : ''));
+    if (a.hasAttribute('data-order')) {
+      a.href = ORDER_TG ? `https://t.me/${ORDER_TG}?text=${text}` : `https://t.me/+${PHONE}?text=${text}`;
+    } else {
+      a.href = MAX_URL || `https://wa.me/${PHONE}?text=${text}`;
+    }
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+</script>
+</body>
+</html>
