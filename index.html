@@ -92,6 +92,14 @@
   .order ol { margin: 0 0 16px; padding-left: 20px; color: var(--muted); }
   .order li { margin-bottom: 6px; }
   .order li b { color: var(--text); }
+  .plist { display: grid; gap: 8px; margin: 0 0 20px; }
+  .prow { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 14px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .prow b { display: block; }
+  .prow span { display: block; color: var(--muted); font-size: 13px; }
+  .prow .pp { font-weight: 800; font-size: 20px; white-space: nowrap; }
+  .prow .btn { padding: 9px 16px; font-size: 14px; }
+  @media (max-width: 520px) { .prow { grid-template-columns: 1fr auto; } .prow .btn { grid-column: 1 / -1; } }
+  .note { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
 
   details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 8px; }
   summary { cursor: pointer; font-weight: 600; }
@@ -130,7 +138,7 @@
 
   <section id="cars">
     <h2>Скоро в Екатеринбурге</h2>
-    <p class="sub">Первая партия уже едет. Можно забронировать — напишите, и машина ваша.</p>
+    <p class="sub">Первая партия уже едет. Бронь — 5 000 ₽, остальное по приходу машины. Передумаете — бронь вернём.</p>
     <div class="cars">
 
       <article class="car">
@@ -243,16 +251,39 @@
 
   <section>
     <h2>Привезём под заказ</h2>
-    <p class="sub">Нужна другая модель, цвет или бесколлекторная версия — привезём из Китая.</p>
+    <p class="sub">Готовы подождать 20–30 дней — выйдет дешевле: везём с фабрики под вас, без склада и наценки за наличие.</p>
     <div class="order">
+      <div class="plist">
+        <div class="prow">
+          <div><b>Nissan Patrol, бесколлекторный</b><span>Yikong 4107 · зелёный, красный металлик, светло-серый · партия на фабрике в конце октября</span></div>
+          <div class="pp">28 900 ₽</div>
+          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong Nissan Patrol, бесколлекторный. Цвет: " href="#">Заказать</a>
+        </div>
+        <div class="prow">
+          <div><b>Toyota Land Cruiser 80, серый</b><span>FMS FCX10 RS · щёточный мотор</span></div>
+          <div class="pp">27 900 ₽</div>
+          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Toyota Land Cruiser 80, серый." href="#">Заказать</a>
+        </div>
+        <div class="prow">
+          <div><b>Toyota Land Cruiser 80 PRO V2, синий</b><span>FMS FCX10 · бесколлекторный мотор</span></div>
+          <div class="pp">38 500 ₽</div>
+          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Toyota Land Cruiser 80 PRO V2, синий." href="#">Заказать</a>
+        </div>
+        <div class="prow">
+          <div><b>G-Class PRO V2, чёрный</b><span>Yikong 4106 · щёточный мотор</span></div>
+          <div class="pp">29 900 ₽</div>
+          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong G-Class PRO V2, чёрный." href="#">Заказать</a>
+        </div>
+      </div>
+      <p class="note">Цены без аккумулятора и зарядки, доставка СДЭК до вашего города оплачивается при получении. Нужна другая модель Yikong, FMS или WLtoys — напишите, посчитаем.</p>
       <ol>
-        <li><b>Пишете, что хотите.</b> Подскажем по моделям и назовём цену с доставкой.</li>
+        <li><b>Пишете, какую модель хотите.</b> Подскажем по версиям и цветам.</li>
         <li><b>Проверяем наличие на фабрике.</b> Обычно в течение дня. Деньги до этого не берём.</li>
-        <li><b>Предоплата 50%.</b> Заказываем машину у поставщика, срок — 20–30 дней.</li>
-        <li><b>Машина приходит в Россию.</b> Присылаем фото и видео, вы доплачиваете вторую половину.</li>
+        <li><b>Оплата 100%.</b> Заказываем машину, срок — 20–30 дней до прихода в Россию.</li>
         <li><b>Отправляем СДЭК</b> в ваш город с трек-номером.</li>
       </ol>
-      <a class="btn" data-order data-msg="Здравствуйте! Хочу заказать модель под заказ: " href="#">Узнать цену и срок</a>
+      <p class="note">Если после оплаты модели на фабрике не окажется, вернём деньги в тот же день или предложим замену — на ваш выбор.</p>
+      <a class="btn ghost" data-order data-msg="Здравствуйте! Хочу заказать модель под заказ: " href="#">Спросить про другую модель</a>
     </div>
   </section>
 
@@ -264,7 +295,11 @@
     </details>
     <details>
       <summary>Сколько ждать под заказ?</summary>
-      <p>20–30 дней от предоплаты до прихода машины в Россию. Точную дату для вашей модели назовём до оплаты.</p>
+      <p>20–30 дней от оплаты до прихода машины в Россию. Точную дату для вашей модели назовём до оплаты.</p>
+    </details>
+    <details>
+      <summary>Как оплатить?</summary>
+      <p>Машины, которые уже едут, бронируются за 5 000 ₽, остальное — когда машина придёт. Модели под заказ с фабрики оплачиваются полностью: за счёт этого цена на них ниже.</p>
     </details>
     <details>
       <summary>Как доставляете?</summary>
