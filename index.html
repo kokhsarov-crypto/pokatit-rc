@@ -99,7 +99,12 @@
   .prow .pp { font-weight: 800; font-size: 20px; white-space: nowrap; }
   .prow .btn { padding: 9px 16px; font-size: 14px; }
   @media (max-width: 520px) { .prow { grid-template-columns: 1fr auto; } .prow .btn { grid-column: 1 / -1; } }
-  .note { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+  .vers { display: grid; gap: 8px; }
+  .ver { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; border-top: 1px solid var(--line); padding-top: 10px; }
+  .ver b { display: block; }
+  .ver span { display: block; color: var(--muted); font-size: 13px; }
+  .ver .vp { font-weight: 800; font-size: 20px; white-space: nowrap; text-align: right; }
+  .ver .btn { grid-column: 1 / -1; padding: 9px 16px; font-size: 14px; }  .note { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
 
   details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 8px; }
   summary { cursor: pointer; font-weight: 600; }
@@ -133,7 +138,7 @@
     <div class="perk"><b>Отвечает Борис</b><span>Автор канала, сам катает эти модели</span></div>
     <div class="perk"><b>Доставка по всей России</b><span>СДЭК с трек-номером, в Екатеринбурге — лично</span></div>
     <div class="perk"><b>Обзор на каждую модель</b><span>Видно, как она едет на самом деле</span></div>
-    <div class="perk"><b>Привезём под заказ</b><span>Любую модель Yikong, FMS, WLtoys</span></div>
+    <div class="perk"><b>Под заказ с фабрики</b><span>Дешевле, чем со склада, — 20–30 дней</span></div>
   </div>
 
   <section id="cars">
@@ -249,35 +254,108 @@
     </div>
   </section>
 
-  <section>
-    <h2>Привезём под заказ</h2>
-    <p class="sub">Готовы подождать 20–30 дней — выйдет дешевле: везём с фабрики под вас, без склада и наценки за наличие.</p>
-    <div class="order">
-      <div class="plist">
-        <div class="prow">
-          <div><b>Nissan Patrol, бесколлекторный</b><span>Yikong 4107 · зелёный, красный металлик, светло-серый · партия на фабрике в конце октября</span></div>
-          <div class="pp">28 900 ₽</div>
-          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong Nissan Patrol, бесколлекторный. Цвет: " href="#">Заказать</a>
+  <section id="preorder">
+    <h2>Под заказ с фабрики</h2>
+    <p class="sub">Везём из Китая под вас, 20–30 дней. Без склада и наценки за наличие — поэтому дешевле, чем у тех, кто продаёт со склада.</p>
+    <div class="cars">
+
+      <article class="car">
+        <div class="photo"><img src="img/yk4083-black.jpg" alt="Yikong 4083 V3 Bronco 1:8, чёрный" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK4083 V3 · 1:8</div>
+          <h3>Bronco 1:8, бесколлекторный, чёрный</h3>
+          <ul>
+            <li>Масштаб 1:8 — крупнее и тяжелее привычных 1:10</li>
+            <li>Бесколлекторный мотор</li>
+          </ul>
+          <div class="status">Есть на фабрике</div>
+          <div class="price">37 800 ₽<small>оплата 100%, 20–30 дней</small></div>
+          <a class="btn wide" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong 4083 V3 Bronco 1:8, бесколлекторный, чёрный." href="#">Заказать</a>
         </div>
-        <div class="prow">
-          <div><b>Toyota Land Cruiser 80, серый</b><span>FMS FCX10 RS · щёточный мотор</span></div>
-          <div class="pp">27 900 ₽</div>
-          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Toyota Land Cruiser 80, серый." href="#">Заказать</a>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/yk4107-red.jpg" alt="Yikong 4107 Nissan Patrol, бесколлекторный, красный металлик" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK4107 · 1:10</div>
+          <h3>Nissan Patrol, бесколлекторный</h3>
+          <ul>
+            <li>Бесколлекторная версия Patrol</li>
+            <li>Цвета: красный металлик, зелёный, светло-серый</li>
+          </ul>
+          <div class="status">Новая партия на фабрике — конец октября</div>
+          <div class="price">29 900 ₽<small>оплата 100%</small></div>
+          <a class="btn wide" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong Nissan Patrol, бесколлекторный. Цвет: " href="#">Заказать</a>
         </div>
-        <div class="prow">
-          <div><b>Toyota Land Cruiser 80 PRO V2, синий</b><span>FMS FCX10 · бесколлекторный мотор</span></div>
-          <div class="pp">38 500 ₽</div>
-          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Toyota Land Cruiser 80 PRO V2, синий." href="#">Заказать</a>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/gclass-v3.jpg" alt="Yikong 4106 PRO V2 G-Class" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK4106 PRO V2 · 1:10</div>
+          <h3>G-Class PRO V2</h3>
+          <ul>
+            <li>Блокировки дифференциалов с пульта, две передачи</li>
+            <li>Цвета: чёрный, белый, серый</li>
+          </ul>
+          <div class="status">Наличие на фабрике проверим за день</div>
+          <div class="price">30 900 ₽<small>оплата 100%, 20–30 дней</small></div>
+          <a class="btn wide" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong G-Class PRO V2. Цвет: " href="#">Заказать</a>
         </div>
-        <div class="prow">
-          <div><b>G-Class PRO V2, чёрный</b><span>Yikong 4106 · щёточный мотор</span></div>
-          <div class="pp">29 900 ₽</div>
-          <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong G-Class PRO V2, чёрный." href="#">Заказать</a>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/yk41015-red.jpg" alt="Yikong 41015, пикап 1:10" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">Yikong · YK41015 · 1:10</div>
+          <h3>Пикап в стиле 70-х</h3>
+          <ul>
+            <li>Блокировки переднего и заднего дифференциала, две передачи</li>
+            <li>Цвета: красный, синий, серый</li>
+          </ul>
+          <div class="status">Есть на фабрике</div>
+          <div class="price">18 400 ₽<small>оплата 100%, 20–30 дней</small></div>
+          <a class="btn wide" data-order data-msg="Здравствуйте! Хочу под заказ: Yikong 41015 пикап. Цвет: " href="#">Заказать</a>
         </div>
-      </div>
-      <p class="note">Цены без аккумулятора и зарядки, доставка СДЭК до вашего города оплачивается при получении. Нужна другая модель Yikong, FMS или WLtoys — напишите, посчитаем.</p>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/wl104006-grey.jpg" alt="WLtoys 104006 Bronco, бесколлекторный" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">WLtoys · 104006 · 1:10</div>
+          <h3>Bronco, бесколлекторный</h3>
+          <ul>
+            <li>Электролебёдка, металлическая защита днища</li>
+            <li>Пульт с экраном, блокировка дифференциала</li>
+            <li>Цвета: серый, красный</li>
+          </ul>
+          <div class="status">Есть на фабрике</div>
+          <div class="price">29 100 ₽<small>оплата 100%, 20–30 дней</small></div>
+          <a class="btn wide" data-order data-msg="Здравствуйте! Хочу под заказ: WLtoys 104006 Bronco, бесколлекторный. Цвет: " href="#">Заказать</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="photo"><img src="img/lc80-prov2-blue.jpg" alt="FMS Toyota Land Cruiser 80 PRO V2, синий" loading="lazy"></div>
+        <div class="body">
+          <div class="brand">FMS · FCX10 · 1:10</div>
+          <h3>Toyota Land Cruiser 80 — три версии</h3>
+          <div class="vers">
+            <div class="ver"><div><b>Серый, RS</b><span>щёточный мотор · есть на фабрике</span></div><div class="vp">28 900 ₽</div>
+              <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80 RS, серый." href="#">Заказать</a></div>
+            <div class="ver"><div><b>Синий, PRO V2</b><span>бесколлекторный · есть на фабрике</span></div><div class="vp">39 900 ₽</div>
+              <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80 PRO V2, синий." href="#">Заказать</a></div>
+            <div class="ver"><div><b>Зелёный</b><span>бесколлекторный · цену уточняем</span></div><div class="vp">по запросу</div>
+              <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80, зелёный. Сколько стоит?" href="#">Узнать</a></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="order" style="margin-top:16px">
+      <p class="note">Цены без аккумулятора и зарядки — подберём их отдельно. Доставка СДЭК до вашего города оплачивается при получении. Нужна другая модель Yikong, FMS или WLtoys — напишите, посчитаем.</p>
       <ol>
-        <li><b>Пишете, какую модель хотите.</b> Подскажем по версиям и цветам.</li>
+        <li><b>Пишете, какую модель и цвет хотите.</b> Подскажем по версиям.</li>
         <li><b>Проверяем наличие на фабрике.</b> Обычно в течение дня. Деньги до этого не берём.</li>
         <li><b>Оплата 100%.</b> Заказываем машину, срок — 20–30 дней до прихода в Россию.</li>
         <li><b>Отправляем СДЭК</b> в ваш город с трек-номером.</li>
