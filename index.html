@@ -99,7 +99,11 @@
   .prow .pp { font-weight: 800; font-size: 20px; white-space: nowrap; }
   .prow .btn { padding: 9px 16px; font-size: 14px; }
   @media (max-width: 520px) { .prow { grid-template-columns: 1fr auto; } .prow .btn { grid-column: 1 / -1; } }
-  .vers { display: grid; gap: 8px; }
+  .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px 8px 0; }
+  .thumb { border: 2px solid var(--line); border-radius: 10px; background: var(--bg); padding: 0; cursor: pointer; overflow: hidden; color: var(--muted); font: inherit; font-size: 12px; }
+  .thumb img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .thumb span { display: block; padding: 3px 0 4px; }
+  .thumb.on { border-color: var(--accent); color: var(--text); }  .vers { display: grid; gap: 8px; }
   .ver { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; border-top: 1px solid var(--line); padding-top: 10px; }
   .ver b { display: block; }
   .ver span { display: block; color: var(--muted); font-size: 13px; }
@@ -336,17 +340,22 @@
       </article>
 
       <article class="car">
-        <div class="photo"><img src="img/lc80-prov2-blue.jpg" alt="FMS Toyota Land Cruiser 80 PRO V2, синий" loading="lazy"></div>
+        <div class="photo"><img id="lc80-main" src="img/lc80.jpg" alt="FMS Toyota Land Cruiser 80, серый" loading="lazy"></div>
+        <div class="thumbs">
+          <button type="button" class="thumb on" data-img="img/lc80.jpg" data-alt="FMS Toyota Land Cruiser 80, серый"><img src="img/lc80.jpg" alt="" loading="lazy"><span>Серый</span></button>
+          <button type="button" class="thumb" data-img="img/lc80-green.jpg" data-alt="FMS Toyota Land Cruiser 80, зелёный"><img src="img/lc80-green.jpg" alt="" loading="lazy"><span>Зелёный</span></button>
+          <button type="button" class="thumb" data-img="img/lc80-prov2-blue.jpg" data-alt="FMS Toyota Land Cruiser 80 PRO V2, синий"><img src="img/lc80-prov2-blue.jpg" alt="" loading="lazy"><span>Синий</span></button>
+        </div>
         <div class="body">
           <div class="brand">FMS · FCX10 · 1:10</div>
           <h3>Toyota Land Cruiser 80 — три версии</h3>
           <div class="vers">
-            <div class="ver"><div><b>Серый, RS</b><span>щёточный мотор · есть на фабрике</span></div><div class="vp">28 900 ₽</div>
+            <div class="ver" data-img="img/lc80.jpg"><div><b>Серый, RS</b><span>щёточный мотор · есть на фабрике</span></div><div class="vp">28 900 ₽</div>
               <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80 RS, серый." href="#">Заказать</a></div>
-            <div class="ver"><div><b>Синий, PRO V2</b><span>бесколлекторный · есть на фабрике</span></div><div class="vp">39 900 ₽</div>
-              <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80 PRO V2, синий." href="#">Заказать</a></div>
-            <div class="ver"><div><b>Зелёный</b><span>бесколлекторный · цену уточняем</span></div><div class="vp">по запросу</div>
+            <div class="ver" data-img="img/lc80-green.jpg"><div><b>Зелёный</b><span>бесколлекторный · цену уточняем</span></div><div class="vp">по запросу</div>
               <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80, зелёный. Сколько стоит?" href="#">Узнать</a></div>
+            <div class="ver" data-img="img/lc80-prov2-blue.jpg"><div><b>Синий, PRO V2</b><span>бесколлекторный · есть на фабрике</span></div><div class="vp">39 900 ₽</div>
+              <a class="btn" data-order data-msg="Здравствуйте! Хочу под заказ: FMS Land Cruiser 80 PRO V2, синий." href="#">Заказать</a></div>
           </div>
         </div>
       </article>
@@ -409,6 +418,17 @@
     a.target = '_blank';
     a.rel = 'noopener';
   });
+  // карточка Land Cruiser: переключение фото по версиям
+  const lcMain = document.getElementById('lc80-main');
+  const lcThumbs = document.querySelectorAll('.thumb');
+  function showLc(src) {
+    const th = [...lcThumbs].find(b => b.dataset.img === src);
+    if (!lcMain || !th) return;
+    lcMain.src = src; lcMain.alt = th.dataset.alt;
+    lcThumbs.forEach(b => b.classList.toggle('on', b === th));
+  }
+  lcThumbs.forEach(b => b.addEventListener('click', () => showLc(b.dataset.img)));
+  document.querySelectorAll('.ver[data-img]').forEach(v => v.addEventListener('click', e => { if (!e.target.closest('a')) showLc(v.dataset.img); }));
 </script>
 </body>
 </html>
